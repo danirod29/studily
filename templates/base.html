@@ -1,0 +1,24 @@
+ {% extends 'bootstrap/base.html' %}
+
+ {% block head %}
+    {{super()}}
+    
+    <title>
+        {% block title %} Title Flask | {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+{% endblock %}
+
+{% block body %}
+    {% block navbar %}
+        {% include 'navbar.html' %}
+    {% endblock %}
+    {% block login %}
+        {% include 'login.html' %}
+    {% endblock %}
+
+{% block content %}
+    
+{% endblock %}
+
+{% endblock %}
