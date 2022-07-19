@@ -1,4 +1,7 @@
 flask
 flask-bootstrap
 flask-wtf
+flask-form
 flask-testing
+flask-sqlalchemy
+wtforms[email]

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{%block title%}
+    {{super()}} 
+    Inicio
+{%endblock%}
+{%block content%}
+
+<body>
+{%if username %}
+    <div>
+        VIDA HPTAAAAAAAA 2
+    </div>
+    <div>
+        {{username}}
+    </div>
+    {% if user_ip %}
+        <h1>Tu ip es {{ user_ip }}</h1>
+        <ul>
+            Descripción:
+            {%for todo in todos%}
+                {{macros.render_todo(todo)}}
+            {%endfor%}
+        </ul>
+    {% endif %}    
+    <h1>Bienvenido, {{username | capitalize}}</h1>
+    <br>
+    <h1>Contraseña: {{password}}</h1>
+    {% else %}
+
+    Este es el home
+
+{% endif %}
+</body>
+</html>
+  
+{%endblock%}

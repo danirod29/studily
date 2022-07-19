@@ -1,24 +1,39 @@
- {% extends 'bootstrap/base.html' %}
+{% extends 'bootstrap/base.html' %}
+
 
  {% block head %}
     {{super()}}
     
     <title>
-        {% block title %} Title Flask | {% endblock %}
+        {% block title %} Studily | {% endblock %}
     </title>
     <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="icon" href="{{url_for('static',filename='images/logo.png')}}">
 {% endblock %}
 
 {% block body %}
+
     {% block navbar %}
         {% include 'navbar.html' %}
     {% endblock %}
-    {% block login %}
-        {% include 'login.html' %}
+
+    {% block scripts %} 
+        {{ super() }}
     {% endblock %}
 
-{% block content %}
+    {%with messages = get_flashed_messages(with_categories = True)%}
+        {%if messages%}
+            {% for category, message in messages%}
+                <div class="alert alert-${success} alert-dismissible" role="alert">
+                <div>{{message}}</div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
     
-{% endblock %}
+    {% endblock %}
 
 {% endblock %}
